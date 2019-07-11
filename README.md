@@ -1,7 +1,7 @@
 # my-vimrc-installer
 Repository providing a script for automatically installing all my vimrc settings
 
-`curl https://raw.githubusercontent.com/datMaffin/my-vimrc-installer/master/install-default-vimrc.sh > ~/.vimrc`
+`curl https://raw.githubusercontent.com/datMaffin/my-vimrc-installer/master/vimrc > ~/.vimrc`
 
 ## Dependencies
 * TODO?
