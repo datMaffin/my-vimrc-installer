@@ -15,7 +15,7 @@ Plug 'datMaffin/vim-colors-bionik'
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Better markdown support
 Plug 'godlygeek/tabular'
