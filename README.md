@@ -3,6 +3,9 @@ Repository providing a script for automatically installing all my vimrc settings
 
 `curl https://raw.githubusercontent.com/datMaffin/my-vimrc-installer/master/vimrc > ~/.vimrc`
 
+*This vimrc sets the gui font to Mononoki.*
+
+# TODOs:
 ## Dependencies
 * TODO?
 
