@@ -58,6 +58,7 @@ let g:javascript_plugin_jsdoc = 1
 " Configuration for vim-scala
 " ---------------------------
 au BufRead,BufNewFile *.sbt set filetype=scala
+let g:scala_scaladoc_indent = 1
 
 " coc.nvim
 " --------
@@ -176,11 +177,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" vim-scala settings
-" ------------------
-let g:scala_scaladoc_indent = 1
-
 
 " My Settings
 " ===========
