@@ -5,14 +5,8 @@ Repository providing a script for automatically installing all my vimrc settings
 
 *This vimrc sets the gui font to Mononoki.*
 
-# TODOs:
-## Dependencies
-* TODO?
-
-## Install Vimrc (with different options)
-* Everything
-* No Coc.Nvim
-* Fonts
-
-## Coc.Nvim setups
-* All the languages
+Setup after the command:
+1. Open `vim`
+2. Execute `:PlugInstall` in vim
+3. Restart vim
+4. Configure coc.vim [extensions](https://github.com/neoclide/coc.nvim#extensions) and [language server](https://github.com/neoclide/coc.nvim/wiki/Language-servers)
