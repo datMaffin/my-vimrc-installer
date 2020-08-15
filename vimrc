@@ -102,6 +102,9 @@ endif
 " ===========
 colo bionik
 
-set encoding=utf-8
 set guifont=Mononoki:h12
 set linespace=2  " linespace is specifically set for mononoki
+
+" set leader to space
+nnoremap <SPACE> <Nop>
+let mapleader=" "
