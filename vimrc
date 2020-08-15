@@ -26,6 +26,8 @@ Plug 'datMaffin/vim-colors-bionik'
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'editorconfig/editorconfig-vim'
+
 Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
