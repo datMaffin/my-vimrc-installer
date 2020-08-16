@@ -98,6 +98,18 @@ if executable('ccls')
         \ })
 endif
 
+"lsp setup for rust via rls
+if executable('rls')
+	" install via rustup; see rls github page for details
+	au User lsp_setup call lsp#register_server({
+				\ 'name': 'rls',
+				\ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+				\ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+				\ 'whitelist': ['rust'],
+				\ })
+endif
+
+
 " My Settings
 " ===========
 colo bionik
