@@ -13,4 +13,4 @@ curl https://raw.githubusercontent.com/datMaffin/my-vimrc-installer/master/vimrc
 *This vimrc sets the gui font to Mononoki.*
 
 Setup after the command:
-1. Open `vim` and/or `nvim`
+1. Open `vim` and/or `nvim` (shell needs to be posix)
