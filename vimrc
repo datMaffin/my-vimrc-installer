@@ -1,14 +1,14 @@
 if has('nvim')
     if empty(glob(stdpath('data') . '/autoload/plug.vim'))
-      silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
 else
     if empty(glob('~/.vim/autoload/plug.vim'))
-      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
 endif
 
@@ -53,7 +53,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " vim-lsp settings
 " -----------------
-"when lsp in use; change key bindings
+" when lsp in use; change key bindings
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
@@ -66,7 +66,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
-    
+
     " refer to doc to add more commands
 endfunction
 augroup lsp_install
@@ -79,10 +79,10 @@ augroup END
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'allowlist': ['python'],
-        \ })
+                \ 'name': 'pyls',
+                \ 'cmd': {server_info->['pyls']},
+                \ 'allowlist': ['python'],
+                \ })
 endif
 
 "lsp setup for c/cpp/objc using ccls
@@ -90,25 +90,23 @@ if executable('ccls')
     " should be packaged in most package repositories under the name ccls
     " a compile_commands.json file should be found in the root folder!
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'ccls',
-        \ 'cmd': {server_info->['ccls']},
-        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-        \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-        \ })
+                \ 'name': 'ccls',
+                \ 'cmd': {server_info->['ccls']},
+                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+                \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+                \ })
 endif
 
-"lsp setup for rust via rls
 if executable('rls')
-	" install via rustup; see rls github page for details
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'rls',
-				\ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-				\ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-				\ 'whitelist': ['rust'],
-				\ })
+    " install via rustup; see rls github page for details
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'rls',
+                \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+                \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+                \ 'whitelist': ['rust'],
+                \ })
 endif
-
 
 " My Settings
 " ===========
@@ -116,6 +114,8 @@ colo bionik
 
 set guifont=Mononoki:h12
 set linespace=2  " linespace is specifically set for mononoki
+
+set cmdheight=2
 
 " set leader to space
 nnoremap <SPACE> <Nop>
