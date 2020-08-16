@@ -35,6 +35,10 @@ call plug#end()
 " Plugin Settings
 " ===============
 
+" Set colorscheme
+" ---------------
+colorscheme bionik
+
 " NERDTree settings
 " -----------------
 " Open automatically when no files were specified
@@ -53,10 +57,18 @@ map <C-n> :NERDTreeToggle<CR>
 
 " vim-lsp settings
 " -----------------
+" general
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_async_completion = 1
+
+" keep it disabed, kinda buggy atm
+"let g:lsp_highlight_references_enabled = 1
+
 " when lsp in use; change key bindings
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
+    setlocal completeopt-=preview
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gr <plug>(lsp-references)
@@ -85,16 +97,25 @@ if executable('pyls')
                 \ })
 endif
 
-"lsp setup for c/cpp/objc using ccls
-if executable('ccls')
-    " should be packaged in most package repositories under the name ccls
-    " a compile_commands.json file should be found in the root folder!
+" "lsp setup for c/cpp/objc using ccls
+" if executable('ccls')
+"     " should be packaged in most package repositories under the name ccls
+"     " a compile_commands.json file should be found in the root folder!
+"     au User lsp_setup call lsp#register_server({
+"                 \ 'name': 'ccls',
+"                 \ 'cmd': {server_info->['ccls']},
+"                 \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+"                 \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
+"                 \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+"                 \ })
+" endif
+
+if executable('clangd')
+    " included with clang
     au User lsp_setup call lsp#register_server({
-                \ 'name': 'ccls',
-                \ 'cmd': {server_info->['ccls']},
-                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-                \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
-                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+                \ 'name': 'clangd',
+                \ 'cmd': {server_info->['clangd', '-background-index']},
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
                 \ })
 endif
 
@@ -108,15 +129,23 @@ if executable('rls')
                 \ })
 endif
 
-" My Settings
-" ===========
-colo bionik
+"lsp setup for vimlang
+if executable('vim-language-server')
+    augroup LspVim
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'vim-language-server',
+                    \ 'cmd': {server_info->['vim-language-server', '--stdio']},
+                    \ 'whitelist': ['vim'],
+                    \ 'initialization_options': {
+                    \   'vimruntime': $VIMRUNTIME,
+                    \   'runtimepath': &rtp,
+                    \ }})
+    augroup END
+endif
 
+" My GUI Settings
+" ===========
 set guifont=Mononoki:h12
 set linespace=2  " linespace is specifically set for mononoki
 
-set cmdheight=2
-
-" set leader to space
-nnoremap <SPACE> <Nop>
-let mapleader=" "
