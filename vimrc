@@ -129,6 +129,16 @@ if executable('rls')
                 \ })
 endif
 
+if executable('texlab')
+    " install via rustup; see rls github page for details
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'texlab',
+                \ 'cmd': {server_info->['texlab']},
+                \ 'whitelist': ['plaintex', 'tex'],
+                \ })
+endif
+
+
 "lsp setup for vimlang
 if executable('vim-language-server')
     augroup LspVim
