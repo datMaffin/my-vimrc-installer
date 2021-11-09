@@ -156,6 +156,6 @@ endif
 
 " My GUI Settings
 " ===========
-set guifont=Mononoki:h12
-set linespace=2  " linespace is specifically set for mononoki
+"set guifont=Mononoki:h12
+"set linespace=2  " linespace is specifically set for mononoki
 
