@@ -129,6 +129,14 @@ if executable('rls')
                 \ })
 endif
 
+if executable('rust-analyzer')
+    au User lsp_setup call lsp#register_server({
+                \   'name': 'Rust Language Server',
+                \   'cmd': {server_info->['rust-analyzer']},
+                \   'whitelist': ['rust'],
+                \ })
+endif
+
 if executable('texlab')
     " install via rustup; see rls github page for details
     au User lsp_setup call lsp#register_server({
