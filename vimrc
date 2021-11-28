@@ -37,7 +37,7 @@ call plug#end()
 
 " Personal Vimrc
 " --------------
-let g:use_minimal_ui = 1
+let g:use_detailed_ui = 1
 
 " Set colorscheme
 " ---------------
