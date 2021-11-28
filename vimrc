@@ -35,6 +35,10 @@ call plug#end()
 " Plugin Settings
 " ===============
 
+" Personal Vimrc
+" --------------
+let g:use_minimal_ui = 1
+
 " Set colorscheme
 " ---------------
 colorscheme bionik
