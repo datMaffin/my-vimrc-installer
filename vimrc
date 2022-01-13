@@ -101,6 +101,17 @@ if executable('pyls')
                 \ })
 endif
 
+"lsp setup for python using python-lsp-server (maintenance fork of pyls)
+if executable('pylsp')
+    " pip install 'python-lsp-server[all]'
+    " pip install pylsp-mypy  # mypy extension
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'pylsp',
+                \ 'cmd': {server_info->['pylsp']},
+                \ 'allowlist': ['python'],
+                \ })
+endif
+
 " "lsp setup for c/cpp/objc using ccls
 " if executable('ccls')
 "     " should be packaged in most package repositories under the name ccls
