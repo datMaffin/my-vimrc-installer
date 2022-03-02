@@ -7,7 +7,7 @@ curl https://raw.githubusercontent.com/datMaffin/my-vimrc-installer/master/vimrc
 ```
 **For Neovim:**
 ```bash
-curl https://raw.githubusercontent.com/datMaffin/my-vimrc-installer/master/vimrc >> ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim
+mkdir ~/.config/nvim && curl https://raw.githubusercontent.com/datMaffin/my-vimrc-installer/master/vimrc >> ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim
 ```
 
 *This vimrc sets the gui font to Mononoki.*
