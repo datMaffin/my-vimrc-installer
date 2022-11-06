@@ -15,6 +15,7 @@ endif
 " My stuff
 Plug 'datMaffin/personal-vimrc'
 Plug 'datMaffin/vim-colors-bionik'
+Plug 'datMaffin/vim-colors-bionik2'
 
 Plug 'scrooloose/nerdtree'
 
@@ -33,7 +34,7 @@ let g:use_detailed_ui = 1
 
 " Set colorscheme
 " ---------------
-colorscheme bionik
+colorscheme bionik2
 
 " NERDTree settings
 " -----------------
@@ -171,6 +172,15 @@ endif
 
 " My GUI Settings
 " ===========
-"set guifont=Mononoki:h12
-"set linespace=2  " linespace is specifically set for mononoki
+"set guifont=Monofoki:h10
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Set size of gvim window.
+  set lines=45 columns=100
+  set background=light
+endif
+
+" Windows setting
+"set renderoptions=type:directx
+
 
