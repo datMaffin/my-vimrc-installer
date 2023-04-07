@@ -154,6 +154,34 @@ if executable('texlab')
                 \ })
 endif
 
+"lsp setup for ocaml
+if executable('ocamllsp')
+    augroup LspVim
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'ocamllsp',
+                    \ 'cmd': {server_info->['ocamllsp']},
+                    \ 'whitelist': ['ocaml']
+                    \ })
+    augroup END
+endif
+
+
+"lsp setup for ruby
+" may need rubocop for the formatting to work
+if executable('solargraph')
+    augroup LspVim
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'solargraph',
+                    \ 'cmd': {server_info->['solargraph', 'stdio']},
+                    \ 'whitelist': ['ruby'],
+                    \ 'initialization_options': {
+                    \   'formatting': 'true',
+                    \ }})
+    augroup END
+endif
+
 
 "lsp setup for vimlang
 if executable('vim-language-server')
