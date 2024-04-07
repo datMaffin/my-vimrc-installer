@@ -31,6 +31,7 @@ call plug#end()
 " Personal Vimrc
 " --------------
 let g:use_detailed_ui = 1
+let g:use_git_grep = 0  " set it to 1 to use git grep for the :grep command
 
 " Set colorscheme
 " ---------------
