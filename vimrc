@@ -16,6 +16,7 @@ endif
 Plug 'datMaffin/personal-vimrc'
 Plug 'datMaffin/vim-colors-bionik'
 Plug 'datMaffin/vim-colors-bionik2'
+Plug 'datMaffin/vim-colors-bionik3'
 
 Plug 'scrooloose/nerdtree'
 
@@ -35,7 +36,7 @@ let g:use_git_grep = 0  " set it to 1 to use git grep for the :grep command
 
 " Set colorscheme
 " ---------------
-colorscheme bionik2
+colorscheme bionik3
 
 " NERDTree settings
 " -----------------
